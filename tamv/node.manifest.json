@@ -1,0 +1,22 @@
+{
+  "protocol": "tamv-federation-v1",
+  "nodeId": "tamv.data",
+  "repository": "OsoPanda1/datostamv",
+  "role": "data",
+  "version": "0.1.0",
+  "description": "Data node for artifact ledgers, feedback logs, generated output metadata and event snapshots.",
+  "capabilities": ["data-store", "artifact-ledger", "feedback-log"],
+  "channels": {
+    "publishes": ["NODE_HEARTBEAT", "DATASET_UPDATED"],
+    "subscribes": ["ASSET_READY", "PDF_READY", "QUALITY_SCORE_REPORTED", "FAILURE_REPORTED"]
+  },
+  "state": {
+    "mode": "active",
+    "persistence": ".tamv/state/events.jsonl",
+    "heartbeat": "manual-or-scheduled"
+  },
+  "links": {
+    "orchestrator": "OsoPanda1/tamv-orchestrator",
+    "protocol": "tamv-federation-v1"
+  }
+}
